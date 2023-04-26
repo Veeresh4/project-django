@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Updatedata</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			padding: 20px;
+		}
+		h1 {
+			text-align: center;
+			color: #333;
+			margin-bottom: 30px;
+		}
+		form {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+			color: #333;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="phone"],
+		select,
+		textarea {
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+			font-size: 16px;
+			color: #555;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<h1>Updatedata</h1>
+    <form action "/update/{{user_obj.id}}/" method="post">
+    {% csrf_token %}
+		
+		<label for="fullname">Fullname:</label>
+		<input type="text" id="fullname" name="fullname" value={{user_obj.fullname}}>
+		
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" value={{user_obj.username}}>
+		
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" value={{user_obj.email}}>
+		
+		<label for="phone">Phone:</label>
+		<input type="phone" id="phone" name="phone" value={{user_obj.phone}}>
+
+		<label for="address">Address:</label>
+		<textarea id="address" name="address" value={{user_obj.address}}></textarea>
+		
+		<input type="submit" value="Update">
+	</form>
+</body>
+</html>
